@@ -16,22 +16,23 @@ public class NumberWizard : MonoBehaviour {
         Debug.Log("The highest number is " + max);
         Debug.Log("Tell me if your number is lower or higher than " + guess);
         Debug.Log("Push Down = Lower, Push Up = Higher, Enter = Correct");
+        max = max + 1;
     }
 
     // Update is called once per frame
     void Update() {
         if(Input.GetKeyDown(KeyCode.DownArrow)){
-            Debug.Log("Down Arrow was pressed.");
             max = guess;
-            Debug.Log(guess);
+            guess = (max + min) / 2;
+            Debug.Log("Tell me if your number is lower or higher than " + guess);
         }
         else if(Input.GetKeyDown(KeyCode.UpArrow)){
-            Debug.Log("Up Arrow was pressed.");
             min = guess;
-            Debug.Log(guess);
+            guess = (max + min) / 2;
+            Debug.Log("Tell me if your number is lower or higher than " + guess);
         }
         else if(Input.GetKeyDown(KeyCode.Return)){
-            Debug.Log("Enter was pressed.");
+            Debug.Log("I win!");
         }
     }
 }
